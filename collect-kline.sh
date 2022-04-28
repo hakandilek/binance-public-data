@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DAYS=100
+DAYS=423
 echo "collecting data for ${DAYS} days..."
 DIR_=$(pwd)
 START=$(date -d "${DAYS} days ago" "+%F")
@@ -32,6 +32,6 @@ then
     unzip -o "*.zip" -d ${DATA_DIR}
 fi
 
-cat ${DATA_DIR}/*.csv | sort | uniq -u > "${DATA_DIR}/merged_${START}_${END}.csv"
+cat ${DATA_DIR}/BTCUSDT*.csv | sort | uniq -u > "${DATA_DIR}/merged_${START}_${END}.csv"
 
 cd ${DIR_}
